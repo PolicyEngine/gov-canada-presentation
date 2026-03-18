@@ -19,8 +19,6 @@ export default function SlideLayout({
     warm: "bg-[#f9f8f6]",
   }[variant];
 
-  const isLight = variant === "white" || variant === "warm";
-
   return (
     <section
       id={id}

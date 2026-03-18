@@ -21,7 +21,7 @@ export default function S08_WebInterface() {
               />
             </div>
             <p className="text-sm text-gray-500 mt-3 text-center">
-              Winners and losers by income decile
+              Reform impact analysis
             </p>
           </div>
 

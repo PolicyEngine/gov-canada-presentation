@@ -75,7 +75,7 @@ export default function S07_TrackRecord() {
             >
               {logo.file ? (
                 <img
-                  src={logo.file}
+                  src={`${import.meta.env.BASE_URL}${logo.file?.replace(/^\//, '')}`}
                   alt={logo.name}
                   className="max-h-10 max-w-full object-contain"
                 />

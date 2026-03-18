@@ -23,7 +23,7 @@ export default function S01_Title() {
           <div className="flex items-center justify-center gap-12 mt-16">
             <div className="flex items-center gap-4">
               <img
-                src="/images/max-ghenis.webp"
+                src={`${import.meta.env.BASE_URL}images/max-ghenis.webp`}
                 alt="Max Ghenis"
                 className="w-20 h-20 rounded-full border-2 border-white/40 object-cover"
               />
@@ -34,7 +34,7 @@ export default function S01_Title() {
             </div>
             <div className="flex items-center gap-4">
               <img
-                src="/images/pavel-makarchuk.webp"
+                src={`${import.meta.env.BASE_URL}images/pavel-makarchuk.webp`}
                 alt="Pavel Makarchuk"
                 className="w-20 h-20 rounded-full border-2 border-white/40 object-cover"
               />

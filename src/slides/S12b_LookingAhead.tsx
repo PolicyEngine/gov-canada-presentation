@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import SlideLayout from "../components/SlideLayout";
 
 const cycleSteps = [
@@ -8,41 +9,80 @@ const cycleSteps = [
 ];
 
 function StatuteToRAC() {
+  const [tab, setTab] = useState<"statute" | "rac">("statute");
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const interval = setInterval(() => {
+      setTab((t) => (t === "statute" ? "rac" : "statute"));
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [paused]);
+
+  const handleTab = (t: "statute" | "rac") => {
+    return (e: React.MouseEvent) => {
+      e.stopPropagation();
+      setTab(t);
+      setPaused(true);
+      setTimeout(() => setPaused(false), 10000);
+    };
+  };
+
   return (
-    <div className="flex items-stretch gap-0">
-      {/* Statute panel */}
-      <div className="flex-1 bg-gray-50 border border-gray-200 rounded-l-lg overflow-hidden flex flex-col">
-        <div className="flex items-center gap-2 px-3 py-1.5 border-b border-gray-200 bg-white">
-          <span className="w-2 h-2 bg-amber-500 rounded-full" />
-          <span className="font-mono text-xs text-gray-500">
-            ITA § 122.61(1)
-          </span>
+    <div className="flex flex-col items-center">
+      {/* Single panel with tabbed header */}
+      <div className="w-full max-w-3xl rounded-xl overflow-hidden shadow-lg border border-amber-900/30">
+        {/* Split tab header */}
+        <div className="flex">
+          <button
+            onClick={handleTab("statute")}
+            className={`flex-1 px-5 py-2.5 flex items-center justify-center transition-colors cursor-pointer border-0 ${
+              tab === "statute"
+                ? "bg-[#6b4c2a]"
+                : "bg-[#4a3520] hover:bg-[#5a4028]"
+            }`}
+          >
+            <span className={`font-mono text-sm ${tab === "statute" ? "text-white" : "text-white/50"}`}>ITA § 122.61(1)(a)</span>
+          </button>
+          <button
+            onClick={handleTab("rac")}
+            className={`flex-1 px-5 py-2.5 flex items-center justify-center transition-colors cursor-pointer border-0 ${
+              tab === "rac"
+                ? "bg-[#6b4c2a]"
+                : "bg-[#4a3520] hover:bg-[#5a4028]"
+            }`}
+          >
+            <span className={`font-mono text-sm ${tab === "rac" ? "text-white" : "text-white/50"}`}>statute/ca/ita/122.61/1.rac</span>
+          </button>
         </div>
-        <div className="px-4 py-3 font-mono text-[0.8rem] text-gray-700 leading-relaxed flex-1">
-          <p>&hellip; the product obtained by multiplying <strong className="text-gray-900">$6,400</strong> by the number of qualified dependants &hellip; who have not reached the age of <strong className="text-gray-900">six years</strong> at the beginning of the month &hellip;</p>
+        {/* Accent line under active tab */}
+        <div className="flex">
+          <div className={`flex-1 h-0.5 ${tab === "statute" ? "bg-amber-500" : "bg-transparent"}`} />
+          <div className={`flex-1 h-0.5 ${tab === "rac" ? "bg-amber-500" : "bg-transparent"}`} />
+        </div>
+
+        {/* Body */}
+        <div className={`px-8 py-6 min-h-[280px] ${tab === "statute" ? "bg-gradient-to-br from-amber-800/90 to-amber-900/95" : "bg-[#1a1a1a]"}`}>
+          {tab === "statute" ? (
+            <p className="font-serif text-[1.05rem] text-white/85 leading-relaxed italic">
+              (a) the product obtained by multiplying $6,400 by the number of
+              qualified dependants in respect of whom the person was an eligible
+              individual at the beginning of the month who have not reached the
+              age of six years at the beginning of the month, and
+            </p>
+          ) : (
+            <div className="font-mono text-[0.9rem] leading-relaxed whitespace-pre text-white/90">
+<span className="text-[#d4956a]">ccb_under_6_amount</span><span className="text-white/40">:</span>{"\n"}{"    "}<span className="text-[#c084fc]">from</span> <span className="text-[#7dd3fc]">2016-07-01</span><span className="text-white/40">:</span> <span className="text-white">6400</span>{"\n"}{"\n"}<span className="text-[#d4956a]">ccb_young_child_age</span><span className="text-white/40">:</span>{"\n"}{"    "}<span className="text-[#c084fc]">from</span> <span className="text-[#7dd3fc]">2016-07-01</span><span className="text-white/40">:</span> <span className="text-white">6</span>{"\n"}{"\n"}<span className="text-[#d4956a]">ccb_base</span><span className="text-white/40">:</span>{"\n"}{"    "}<span className="text-white/40">imports:</span>{"\n"}{"        "}<span className="text-white/40">- </span><span className="text-[#7dd3fc]">122.6#eligible_individual</span>{"\n"}{"        "}<span className="text-white/40">- </span><span className="text-[#7dd3fc]">122.6#qualified_dependant</span>{"\n"}{"    "}<span className="text-white/40">entity:</span> <span className="text-white">Household</span>{"\n"}{"    "}<span className="text-[#c084fc]">from</span> <span className="text-[#7dd3fc]">2016-07-01</span><span className="text-white/40">:</span>{"\n"}{"        "}<span className="text-white">(eligible_individual &</span>{"\n"}{"         "}<span className="text-white">qualified_dependant &lt; ccb_young_child_age)</span>{"\n"}{"         "}<span className="text-white">* ccb_under_6_amount</span>
+            </div>
+          )}
         </div>
       </div>
 
-      {/* AutoRAC label + arrow */}
-      <div className="flex flex-col items-center justify-center shrink-0 px-4">
-        <span className="text-xs font-bold text-pe-teal tracking-wider uppercase mb-1">AutoRAC</span>
-        <svg width="32" height="20" viewBox="0 0 32 20" fill="none">
-          <path d="M0 10h24m0 0l-6-6m6 6l-6 6" stroke="#2C7A7B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </div>
-
-      {/* RAC panel */}
-      <div className="flex-1 bg-blue-50/50 border border-blue-200 rounded-r-lg overflow-hidden flex flex-col">
-        <div className="flex items-center gap-2 px-3 py-1.5 border-b border-blue-200 bg-white">
-          <span className="w-2 h-2 bg-[#2C7A7B] rounded-full" />
-          <span className="font-mono text-xs text-gray-500">
-            statute/ca/ita/122.61/1.rac
-          </span>
-        </div>
-        <div className="px-4 py-3 font-mono text-[0.8rem] leading-relaxed flex-1 whitespace-pre text-gray-800">
-<span className="text-amber-700">ccb_under_6_amount</span><span className="text-gray-400">:</span>{"\n"}{"    "}<span className="text-purple-600">from</span> <span className="text-blue-600">2016-07-01</span><span className="text-gray-400">:</span> <span className="text-gray-900">6400</span>{"\n"}{"    "}<span className="text-purple-600">from</span> <span className="text-blue-600">2017-07-01</span><span className="text-gray-400">:</span> <span className="text-gray-900">6496</span>{"\n"}{"    "}<span className="text-gray-400">...</span>{"\n"}{"    "}<span className="text-purple-600">from</span> <span className="text-blue-600">2024-07-01</span><span className="text-gray-400">:</span> <span className="text-gray-900">7787</span>{"\n"}{"    "}<span className="text-purple-600">from</span> <span className="text-blue-600">2025-07-01</span><span className="text-gray-400">:</span> <span className="text-gray-900">7997</span>{"\n"}{"\n"}<span className="text-amber-700">ccb_young_child_age</span><span className="text-gray-400">:</span>{"\n"}{"    "}<span className="text-purple-600">from</span> <span className="text-blue-600">2016-07-01</span><span className="text-gray-400">:</span> <span className="text-gray-900">6</span>{"\n"}{"\n"}<span className="text-amber-700">ccb_base</span><span className="text-gray-400">:</span>{"\n"}{"    "}<span className="text-gray-400">imports:</span>{"\n"}{"        "}<span className="text-gray-400">- </span><span className="text-blue-600">122.6#eligible_individual</span>{"\n"}{"        "}<span className="text-gray-400">- </span><span className="text-blue-600">122.6#qualified_dependant</span>{"\n"}{"    "}<span className="text-gray-400">entity:</span> <span className="text-gray-900">Household</span>{"\n"}{"    "}<span className="text-purple-600">from</span> <span className="text-blue-600">2016-07-01</span><span className="text-gray-400">:</span>{"\n"}{"        "}<span className="text-gray-900">(eligible_individual &</span>{"\n"}{"         "}<span className="text-gray-900">qualified_dependant &lt; ccb_young_child_age)</span>{"\n"}{"         "}<span className="text-gray-900">* ccb_under_6_amount</span>
-        </div>
-      </div>
+      {/* Caption */}
+      <p className="mt-3 font-mono text-xs text-gray-400 tracking-[0.2em] uppercase">
+        Same law, two representations
+      </p>
     </div>
   );
 }

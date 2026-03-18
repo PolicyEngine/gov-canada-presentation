@@ -269,7 +269,7 @@ export default function S11b_AgentWorkflow() {
       <div className="space-y-2">
         <div>
           <h2 className="text-4xl font-bold text-pe-dark leading-tight tracking-tight">
-            AI-powered policy encoding
+            AI cuts our encoding time by 95%
           </h2>
           <div className="w-32 accent-bar mt-3" />
           <p className="text-base text-gray-600 mt-2 max-w-3xl">

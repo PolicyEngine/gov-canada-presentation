@@ -2,8 +2,8 @@ import SlideLayout from "../components/SlideLayout";
 
 const sections = [
   { number: "01", title: "PolicyEngine overview", description: "The platform, who uses it, how microsimulation works" },
-  { number: "02", title: "Policy to code", description: "Translating statutes to code, multi-agent workflow, Axiom Foundation" },
-  { number: "03", title: "PolicyEngine Canada", description: "Coverage today, live demo" },
+  { number: "02", title: "PolicyEngine Canada", description: "Coverage today, live demo" },
+  { number: "03", title: "Policy to code", description: "Translating statutes to code, multi-agent workflow, Axiom Foundation" },
   { number: "04", title: "Claude plugin & next steps", description: "AI-powered analysis, what you can ask" },
 ];
 

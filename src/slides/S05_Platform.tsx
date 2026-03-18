@@ -7,7 +7,6 @@ const columns = [
     items: [
       "Federal income tax",
       "Canada Child Benefit (CCB)",
-      "GST/HST Credit",
       "Canada Workers Benefit (CWB)",
       "Old Age Security (OAS)",
       "CPP retirement pension",
@@ -21,12 +20,12 @@ const columns = [
     title: "Roadmap",
     bg: "bg-[#234E52]",
     items: [
+      "GST/HST Credit (including provincial breakdown)",
       "GIS & Spousal Allowance",
       "EI benefits (beyond stubs)",
-      "Real survey microdata (CIS / T1)",
+      "Real survey microdata",
       "Remaining province build-out",
       "Behavioural responses",
-      "Population-level analysis",
     ],
   },
 ];
@@ -68,8 +67,8 @@ export default function S05_Platform() {
 
         <div className="flex justify-center gap-4 mt-2">
           {[
-            { num: "6", label: "Provinces deep coverage", detail: "ON, BC, QC, AB, NS, YT" },
-            { num: "7", label: "Provinces in progress", detail: "NB, SK, MB, NL, PE, NT, NU" },
+            { num: "6", label: "Provinces/territories deep coverage", detail: "ON, BC, QC, AB, NS, YT" },
+            { num: "7", label: "Provinces/territories in progress", detail: "NB, SK, MB, NL, PE, NT, NU" },
             { num: "250+", label: "Variables with formulas" },
             { num: "US + UK", label: "Models also available" },
           ].map((s) => (

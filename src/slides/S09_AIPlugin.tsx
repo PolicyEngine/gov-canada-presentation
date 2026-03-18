@@ -46,10 +46,7 @@ export default function S09_AIPlugin() {
                 # Ask a policy question in natural language
               </p>
               <p className="text-green-400">
-                $ claude "What would doubling the CCB cost
-              </p>
-              <p className="text-green-400">
-                &nbsp; for families in Ontario?"
+                $ claude "What would doubling the CCB cost for a family with 2 children in Ontario?"
               </p>
             </div>
           </div>

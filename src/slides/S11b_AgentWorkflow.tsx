@@ -268,7 +268,7 @@ export default function S11b_AgentWorkflow() {
     <SlideLayout variant="white" id="slide-11b">
       <div className="space-y-2">
         <div>
-          <h2 className="text-4xl font-bold text-pe-dark leading-tight tracking-tight">
+          <h2 className="text-5xl font-bold text-pe-dark leading-tight tracking-tight">
             AI cuts our encoding time by 95%
           </h2>
           <div className="w-32 accent-bar mt-3" />

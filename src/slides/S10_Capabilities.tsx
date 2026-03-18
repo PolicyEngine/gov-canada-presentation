@@ -3,7 +3,7 @@ import SlideLayout from "../components/SlideLayout";
 const canadaNow = [
   {
     category: "Household analysis",
-    q: "Calculate the effective marginal tax rate for a single parent earning $45,000 in BC.",
+    q: "Calculate the household net income for a single parent earning $45,000 in BC.",
   },
   {
     category: "Benefit eligibility",
@@ -21,20 +21,20 @@ const canadaNow = [
 
 const usUkToday = [
   {
-    category: "Budget scoring",
-    q: "What would expanding the EITC to $1,500 cost the US federal government?",
-  },
-  {
-    category: "Distributional",
-    q: "Show me winners and losers of the One Big Beautiful Bill Act by income decile.",
-  },
-  {
     category: "Poverty impact",
-    q: "How would doubling the UK child element affect child poverty rates?",
+    q: "How many children would be lifted out of poverty?",
   },
   {
-    category: "Population analysis",
-    q: "How many families in Rhode Island would benefit from the new state CTC?",
+    category: "Comparison",
+    q: "Compare EITC expansion to a $200/mo UBI",
+  },
+  {
+    category: "Tax analysis",
+    q: "Show me marginal tax rates under this reform",
+  },
+  {
+    category: "Reform scoring",
+    q: "Repealing the SALT cap on the top decile?",
   },
 ];
 
@@ -87,9 +87,9 @@ export default function S10_Capabilities() {
               {usUkToday.map((p) => (
                 <div
                   key={p.category}
-                  className="content-card p-4 border border-blue-200"
+                  className="content-card p-4 border border-pe-teal/20"
                 >
-                  <span className="text-xs font-semibold px-3 py-1 rounded-full bg-blue-50 text-blue-700 uppercase tracking-wide">
+                  <span className="text-xs font-semibold px-3 py-1 rounded-full bg-pe-teal/10 text-[#2C7A7B] uppercase tracking-wide">
                     {p.category}
                   </span>
                   <p className="text-sm text-gray-700 mt-2 font-medium leading-relaxed">
@@ -102,7 +102,7 @@ export default function S10_Capabilities() {
         </div>
 
         <p className="text-center text-sm text-gray-400 mt-4">
-          Every answer is backed by microsimulation — not LLM guesswork.
+          Every answer is backed by microsimulation on survey data — not LLM guesswork.
         </p>
       </div>
     </SlideLayout>

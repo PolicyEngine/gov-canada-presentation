@@ -47,10 +47,19 @@ export default function S01_Title() {
             </div>
           </div>
 
-          <p className="text-white/40 text-sm mt-12">
-            Government of Canada &middot; March 2026
-          </p>
         </div>
+      </div>
+
+      {/* Header bar */}
+      <div className="absolute top-0 left-0 right-0 h-14 bg-black/20 backdrop-blur-sm flex items-center justify-between px-16 z-10">
+        <img
+          src={`${import.meta.env.BASE_URL}logos/pe-white.svg`}
+          alt="PolicyEngine"
+          className="h-7 opacity-90"
+        />
+        <span className="text-white/80 text-sm font-medium">
+          Government of Canada &middot; March 2026
+        </span>
       </div>
     </section>
   );

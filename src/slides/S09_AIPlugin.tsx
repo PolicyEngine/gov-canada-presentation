@@ -24,7 +24,7 @@ export default function S09_AIPlugin() {
           </p>
         </div>
 
-        <div className="content-card p-6 max-w-3xl">
+        <div className="content-card p-6 max-w-3xl mx-auto">
           <div className="code-block">
             <div className="code-block-header">
               <div className="code-block-dot bg-red-500" />

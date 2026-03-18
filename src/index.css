@@ -1,0 +1,518 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --pe-teal: #319795;
+  --pe-teal-dark: #267573;
+  --pe-dark: #1d4044;
+  --pe-darker: #0d2f33;
+  --pe-light: #e6fffa;
+  --slide-bg: #fafcfd;
+  --accent: #0d7377;
+  --accent-light: rgba(13, 115, 119, 0.1);
+  --accent-mid: rgba(13, 115, 119, 0.2);
+  --text-dark: #1e3a3a;
+  --text-mid: #4a6363;
+  --text-light: #7a9494;
+  --bg-card: #fff;
+  --warning: #b45309;
+  --border: #d4dede;
+  --bg-diagram: #f9f8f6;
+  --col-baseline: #eef6fb;
+  --col-reform-tax: #ecfaf4;
+  --col-earnings: #fef9ec;
+  --col-behavior: #ecfaf4;
+  --col-delta: #f4f0fa;
+  --col-weight: #f3f4f6;
+}
+
+html {
+  font-size: 18px;
+  overflow: hidden;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--slide-bg);
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.035em;
+  font-feature-settings: "ss01" on, "ss02" on, "cv01" on;
+}
+
+.display-text {
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.subtitle-text {
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+}
+
+/* Gradient backgrounds - exact Searchlight */
+.gradient-bg {
+  background: linear-gradient(
+    135deg,
+    var(--pe-teal) 0,
+    var(--pe-teal-dark) 35%,
+    var(--pe-dark) 70%,
+    var(--pe-darker) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      ellipse 80% 50% at 20% 120%,
+      hsla(0, 0%, 100%, 0.08) 0,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 95% 10%,
+      hsla(0, 0%, 100%, 0.06) 0,
+      transparent 40%
+    );
+  pointer-events: none;
+}
+
+.gradient-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 15%;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    hsla(0, 0%, 100%, 0.15) 30%,
+    hsla(0, 0%, 100%, 0.15) 70%,
+    transparent
+  );
+  transform: skewX(-15deg);
+  pointer-events: none;
+}
+
+.gradient-footer {
+  background: linear-gradient(90deg, var(--pe-teal) 0, var(--pe-dark) 100%);
+  box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.12);
+  position: relative;
+}
+
+.gradient-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsla(0, 0%, 100%, 0.3) 50%,
+    transparent
+  );
+}
+
+.gradient-bg .gradient-footer {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.gradient-bg .gradient-footer::before {
+  display: none;
+}
+
+/* Accent bar - exact Searchlight */
+.accent-bar {
+  height: 0.375rem;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    var(--pe-teal) 0,
+    var(--pe-teal-dark) 100%
+  );
+  box-shadow: 0 2px 8px rgba(49, 151, 149, 0.3);
+}
+
+/* Content card - exact Searchlight */
+.content-card {
+  border-radius: 1rem;
+  border-width: 1px;
+  border-color: rgb(243 244 246);
+  background-color: rgb(255 255 255);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04),
+    0 4px 16px rgba(49, 151, 149, 0.06), 0 12px 40px rgba(0, 0, 0, 0.04);
+}
+
+/* Accent block */
+.accent-block {
+  position: relative;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+.accent-block::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0.25rem;
+  border-radius: 9999px;
+  background: linear-gradient(
+    180deg,
+    var(--pe-teal) 0,
+    var(--pe-teal-dark) 100%
+  );
+}
+
+/* Stat number */
+.stat-number {
+  font-size: 3.75rem;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  color: var(--pe-teal);
+  font-feature-settings: "tnum" on, "ss01" on;
+}
+
+/* Slide tag */
+.slide-tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 0.375rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: rgba(49, 151, 149, 0.1);
+  color: var(--pe-teal-dark);
+  letter-spacing: 0.08em;
+}
+
+/* Code block - exact Searchlight */
+.code-block {
+  overflow: hidden;
+  border-radius: 1rem;
+  background: linear-gradient(145deg, #1e1e2e, #11111b);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 hsla(0, 0%, 100%, 0.05);
+}
+
+.code-block-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom-width: 1px;
+  border-color: hsla(0, 0%, 100%, 0.05);
+  padding: 0.75rem 1.25rem;
+}
+
+.code-block-dot {
+  height: 0.75rem;
+  width: 0.75rem;
+  border-radius: 9999px;
+}
+
+.code-block-content {
+  padding: 1.5rem;
+  font-family: JetBrains Mono, Fira Code, Consolas, monospace;
+  line-height: 1.625;
+  color: rgb(243 244 246);
+  font-size: 0.95rem;
+}
+
+/* Icon circle - exact Searchlight */
+.icon-circle {
+  display: flex;
+  height: 4rem;
+  width: 4rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, var(--pe-light) 0, #fff 100%);
+  box-shadow: 0 4px 12px rgba(49, 151, 149, 0.15);
+}
+
+/* Text gradient */
+.text-gradient {
+  background: linear-gradient(135deg, var(--pe-teal) 0, var(--pe-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass effect */
+.glass {
+  background: hsla(0, 0%, 100%, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid hsla(0, 0%, 100%, 0.5);
+}
+
+/* Microsim table - exact Searchlight */
+.microsim-table {
+  overflow: hidden;
+  border-radius: 1rem;
+  border-width: 1px;
+  border-color: rgb(243 244 246);
+  background-color: rgb(255 255 255);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04),
+    0 4px 16px rgba(49, 151, 149, 0.06), 0 12px 40px rgba(0, 0, 0, 0.04);
+}
+
+.microsim-table table {
+  width: 100%;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  border-collapse: collapse;
+}
+
+.microsim-table thead tr:first-child {
+  background: linear-gradient(180deg, #f0f6f6, #e8f0f0);
+}
+
+.microsim-table thead tr:first-child th {
+  padding: 0.5rem 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  letter-spacing: 0.06em;
+}
+
+.microsim-table .group-baseline {
+  color: var(--accent);
+}
+
+.microsim-table .group-reform {
+  color: #16a34a;
+}
+
+.microsim-table thead tr:last-child {
+  background: linear-gradient(180deg, #f0f6f6, #e8f0f0);
+  border-bottom: 2px solid var(--accent-mid);
+}
+
+.microsim-table thead tr:last-child th {
+  padding: 0.75rem 1.5rem;
+  text-align: left;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: 0.01em;
+}
+
+.microsim-table .col-baseline {
+  background: var(--col-baseline);
+}
+
+.microsim-table .col-reform-tax {
+  background: var(--col-reform-tax);
+}
+
+.microsim-table .col-earnings {
+  background: var(--col-earnings);
+}
+
+.microsim-table .col-behavior {
+  background: var(--col-behavior);
+}
+
+.microsim-table .col-delta {
+  background: var(--col-delta);
+}
+
+.microsim-table .col-weight {
+  background: var(--col-weight);
+}
+
+.microsim-table tbody td {
+  padding: 0.75rem 1.5rem;
+  font-family: JetBrains Mono, monospace;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+.microsim-table tbody td.col-input {
+  font-family: Inter, sans-serif;
+  font-size: 1.25rem;
+}
+
+.microsim-table tbody tr + tr {
+  border-top: 1px solid #e5eaea;
+}
+
+.microsim-table tbody tr.row-total {
+  border-top: 3px solid var(--accent);
+}
+
+.microsim-table tbody tr.row-total td {
+  font-weight: 700;
+  color: var(--accent);
+  background: linear-gradient(
+    180deg,
+    rgba(13, 115, 119, 0.06),
+    rgba(13, 115, 119, 0.02)
+  );
+}
+
+.microsim-table tbody tr.row-total td.col-baseline {
+  background: color-mix(
+    in srgb,
+    var(--col-baseline) 70%,
+    rgba(13, 115, 119, 0.1)
+  );
+}
+
+.microsim-table tbody tr.row-total td.col-reform-tax {
+  background: color-mix(
+    in srgb,
+    var(--col-reform-tax) 70%,
+    rgba(13, 115, 119, 0.1)
+  );
+}
+
+.microsim-table tbody tr.row-total td.col-earnings {
+  background: color-mix(
+    in srgb,
+    var(--col-earnings) 70%,
+    rgba(13, 115, 119, 0.1)
+  );
+}
+
+.microsim-table tbody tr.row-total td.col-behavior {
+  background: color-mix(
+    in srgb,
+    var(--col-behavior) 70%,
+    rgba(13, 115, 119, 0.1)
+  );
+}
+
+.microsim-table tbody tr.row-total td.col-delta {
+  background: color-mix(
+    in srgb,
+    var(--col-delta) 70%,
+    rgba(13, 115, 119, 0.1)
+  );
+}
+
+.microsim-table tbody tr.row-total td.col-weight {
+  background: color-mix(
+    in srgb,
+    var(--col-weight) 70%,
+    rgba(13, 115, 119, 0.1)
+  );
+}
+
+.microsim-table tbody tr.row-ellipsis td {
+  color: var(--text-light);
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+/* Animations - exact Searchlight */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.5s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+.delay-2 {
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+.delay-3 {
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+.delay-4 {
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+.delay-5 {
+  animation-delay: 0.5s;
+  opacity: 0;
+}

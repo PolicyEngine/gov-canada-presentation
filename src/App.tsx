@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState, useCallback, type ReactNode } from "react";
 import S01_Title from "./slides/S01_Title";
 import S02_Agenda from "./slides/S02_Agenda";

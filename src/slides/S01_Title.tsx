@@ -23,7 +23,7 @@ export default function S01_Title() {
           <div className="flex items-center justify-center gap-12 mt-16">
             <div className="flex items-center gap-4">
               <img
-                src={`${import.meta.env.BASE_URL}images/max-ghenis.webp`}
+                src={`/images/max-ghenis.webp`}
                 alt="Max Ghenis"
                 className="w-20 h-20 rounded-full border-2 border-white/40 object-cover"
               />
@@ -34,7 +34,7 @@ export default function S01_Title() {
             </div>
             <div className="flex items-center gap-4">
               <img
-                src={`${import.meta.env.BASE_URL}images/pavel-makarchuk.webp`}
+                src={`/images/pavel-makarchuk.webp`}
                 alt="Pavel Makarchuk"
                 className="w-20 h-20 rounded-full border-2 border-white/40 object-cover"
               />
@@ -53,7 +53,7 @@ export default function S01_Title() {
       {/* Header bar */}
       <div className="absolute top-0 left-0 right-0 h-14 bg-black/20 backdrop-blur-sm flex items-center justify-between px-16 z-10">
         <img
-          src={`${import.meta.env.BASE_URL}logos/pe-white.svg`}
+          src={`/logos/pe-white.svg`}
           alt="PolicyEngine"
           className="h-7 opacity-90"
         />

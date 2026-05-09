@@ -15,7 +15,7 @@ export default function S08_WebInterface() {
           <div>
             <div className="content-card overflow-hidden">
               <img
-                src={`${import.meta.env.BASE_URL}screenshots/pe-winners-losers.png`}
+                src={`/screenshots/pe-winners-losers.png`}
                 alt="PolicyEngine winners and losers analysis"
                 className="w-full h-auto"
               />
@@ -28,7 +28,7 @@ export default function S08_WebInterface() {
           <div>
             <div className="content-card overflow-hidden">
               <img
-                src={`${import.meta.env.BASE_URL}screenshots/pe-obbba-scatter.png`}
+                src={`/screenshots/pe-obbba-scatter.png`}
                 alt="PolicyEngine household-by-household scatter plot"
                 className="w-full h-auto"
               />

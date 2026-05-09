@@ -27,7 +27,7 @@ export default function SlideLayout({
       {/* Header bar */}
       <div className="absolute top-0 left-0 right-0 h-14 gradient-bg flex items-center justify-between px-16 z-10">
         <img
-          src={`${import.meta.env.BASE_URL}logos/pe-white.svg`}
+          src={`/logos/pe-white.svg`}
           alt="PolicyEngine"
           className="h-7 opacity-90"
         />

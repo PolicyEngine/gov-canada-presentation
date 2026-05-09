@@ -145,7 +145,7 @@ export default function S12b_LookingAhead() {
         {/* Axiom Foundation */}
         <div className="flex items-center justify-center gap-4 mt-2">
           <img
-            src={`${import.meta.env.BASE_URL}logos/axiom-foundation.svg`}
+            src={`/logos/axiom-foundation.svg`}
             alt="Axiom Foundation"
             className="h-8 object-contain"
           />
